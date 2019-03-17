@@ -30,6 +30,7 @@ class NumButtons extends Component {
           <button onClick={() => this.handleClick(9)}>9</button>
         </div>
         <div>
+          <button onClick={() => this.handleClick('.')}>.</button>
           <button onClick={() => this.handleClick(0)}>0</button>
           <button onClick={() => this.props.resetValues()}>Clear</button>
         </div>
