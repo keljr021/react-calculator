@@ -8,7 +8,7 @@ class NumButtons extends Component {
   }
 
   handleClick = (num) => {
-    this.props.storeNum(num);
+    this.props.inputNumber(num);
   }
 
   render() {

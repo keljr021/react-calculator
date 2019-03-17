@@ -10,47 +10,59 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      value: 0,
       a: null,
       b: null,
-      calc: null,
-      value: 0
+      operator: null,
+      
     };
   }
 
   resetValues = () => {
     this.setState({
+      value: 0,
       a: null,
       b: null,
-      calc: null,
-      value: 0
+      operator: null,
     });
   }
 
-  storeCalc = (calc) => {
+  inputValue = (input) => {
+    
+    let currentValue = this.state.value;
+    
+    this.setState({
+      value: currentValue + "" + this.state.value
+    });
+  }
+
+  storeOperator = (input) => {
 
     if (this.state.calc !== null && this.state.a !== null && this.state.b !== null) {
       this.calculate();
     }
 
     this.setState({
-      calc: calc
+      calc: input
     });
   }
 
-  storeNum = (num) => {
+  storeNumber = (input) => {
     if (this.state.a === null) {
       this.setState({
-        a: num,
-        value: num
+        a: input,
+        value: input
       });
     }
     else {
-      this.setState({
-        b: num,
-        value: num
-      });
 
-      this.calculate();
+      if (this.state.calc !== null) {
+        this.setState({
+          b: input,
+          value: input
+        });
+      }
+
     }
   }
 
@@ -103,8 +115,8 @@ class App extends Component {
         <NumberInput value={this.state.value} />
 
         <div className={"center-padding"}>
-          <CalcButtons storeCalc={this.storeCalc}/>
-          <NumButtons storeNum={this.storeNum} resetValues={this.resetValues}/>
+          <CalcButtons storeOperator={this.storeOperator}/>
+          <NumButtons inputNumber={this.inputNumber} resetValues={this.resetValues}/>
           <EnterButton handleEnter={this.calculate}/>
         </div>
 
