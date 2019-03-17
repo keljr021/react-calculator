@@ -3,7 +3,7 @@ import NumberInput from './NumberInput';
 import CalcButtons from './CalcButtons';
 import NumButtons from './NumButtons';
 import EnterButton from './EnterButton';
-import './App.css';
+import './styles/App.css';
 
 class App extends Component {
 
