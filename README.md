@@ -1,2 +1,2 @@
 # react-calculator
-A calculator component built with React
+A work sample calculator component built with React.
