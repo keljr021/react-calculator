@@ -3,6 +3,31 @@ import './styles/App.css';
 
 class NumberInput extends Component {
 
+  handleKeyDown = (e) => {
+    e.preventDefault();
+
+    let input = e.key;
+
+    if (input == "Enter") {
+      this.props.calculate();
+    }
+
+    else {
+
+      let isOp = (/\+|\-|\*|\//g).test(input);
+      let isNum = (/[0-9]/g).test(input);
+      let isDec = (input == '.');
+
+      if (isOp) {
+        this.props.storeOperator(input);
+      }
+      else {
+        if (isNum || isDec)
+          this.props.inputValue(input);
+      }
+    }
+  }
+
   render() {
 
     const inputStyle = {
@@ -13,7 +38,7 @@ class NumberInput extends Component {
 
     return (
       <div>
-        <input style={inputStyle} type={"text"} value={(this.props.value === null) ? 0 : this.props.value} readOnly={true} />
+        <input style={inputStyle} type={"text"} onKeyDown={this.handleKeyDown} autoFocus={true} defaultValue={(this.props.value == null) ? "" : this.props.value} />
       </div>
     );
   }

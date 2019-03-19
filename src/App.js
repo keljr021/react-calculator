@@ -54,7 +54,7 @@ class App extends Component {
   storeNumber = () => {
     let { numArray, value } = this.state;
 
-    numArray.push(value);
+    numArray.push(parseFloat(value));
 
     this.setState({
       numArray: numArray
@@ -129,7 +129,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <NumberInput value={this.state.value} />
+        <NumberInput inputValue={this.inputValue} storeOperator={this.storeOperator} calculate={this.calculate} value={this.state.value} />
 
         <div className={"center-padding"}>
           <CalcButtons storeNumber={this.storeNumber} storeOperator={this.storeOperator}/>
