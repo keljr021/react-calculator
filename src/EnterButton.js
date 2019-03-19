@@ -7,7 +7,7 @@ class EnterButton extends Component {
   }
 
   handleClick = () => {
-    this.props.handleEnter();
+    this.props.calculate();
   }
 
   render() {

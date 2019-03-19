@@ -7,6 +7,7 @@ class CalcButtons extends Component {
   }
 
   handleClick = (calc) => {
+      this.props.storeNumber();
       this.props.storeOperator(calc);
   }
 

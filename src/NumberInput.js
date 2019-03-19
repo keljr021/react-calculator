@@ -13,7 +13,7 @@ class NumberInput extends Component {
 
     return (
       <div>
-        <input style={inputStyle} type={"text"} value={this.props.value} readOnly={true} />
+        <input style={inputStyle} type={"text"} value={(this.props.value === null) ? 0 : this.props.value} readOnly={true} />
       </div>
     );
   }

@@ -10,114 +10,132 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 0,
-      a: null,
-      b: null,
-      operator: null,
-      
+      value: null,
+      numIndex: 0,
+      numArray: [],
+      opArray: []
     };
   }
 
   resetValues = () => {
     this.setState({
-      value: 0,
-      a: null,
-      b: null,
-      operator: null,
+      value: null,
+      numArray: [],
+      opArray: []
     });
   }
 
   inputValue = (input) => {
     
-    let currentValue = this.state.value;
-    
+    let newValue = input;
+
+    if (this.state.value !== null) {
+      newValue = this.state.value + "" + input;
+    }
+
     this.setState({
-      value: currentValue + "" + this.state.value
+      value: newValue
     });
   }
 
   storeOperator = (input) => {
+    
+    let { opArray } = this.state;
 
-    if (this.state.calc !== null && this.state.a !== null && this.state.b !== null) {
-      this.calculate();
-    }
+    opArray.push(input);
 
     this.setState({
-      calc: input
+      opArray: opArray,
+      value: null
+    });
+    
+  }
+
+  storeNumber = () => {
+    let { numArray, value } = this.state;
+
+    numArray.push(value);
+
+    this.setState({
+      numArray: numArray
     });
   }
 
-  storeNumber = (input) => {
-    if (this.state.a === null) {
-      this.setState({
-        a: input,
-        value: input
-      });
-    }
-    else {
+  calculate = () => {
 
-      if (this.state.calc !== null) {
-        this.setState({
-          b: input,
-          value: input
-        });
+    let { numArray, opArray, value } = this.state;
+
+    //Add last value in first
+    numArray.push(value);
+
+    let a, b;
+
+    for(let i = 0; i < numArray.length; i++) {
+
+      let num = numArray[i];
+
+      if (a == null) {
+        a = parseFloat(num);
+        continue;
+      }
+
+      if (b == null) {
+        b = parseFloat(num);
+      }
+
+      if (a !== null && b !== null) {
+
+        if (opArray.length > 0) {
+         
+          let operator = opArray.shift();
+
+          switch (operator) {
+            case "add":
+              a = (a + b);
+              break;
+            case "sub":
+              a = (a - b);
+              break;
+            case "mul":
+              a = (a * b);
+              break;
+            case "div":
+              a = (a / b);
+              break;
+            case "mod":
+              a = (a % b);
+              break;
+            default:
+              break;
+          }
+
+          b = null;
+
+        }
+
       }
 
     }
-  }
 
-  calculate = () => {
-    let output = 0;
+    this.setState({
+      value: a,
+      numArray: [],
+      opArray: []
+    });
 
-    let a = this.state.a;
-    let b = this.state.b;
-    let calc = this.state.calc;
-
-    if (a !== null && b !== null) {
-
-        switch(calc) {
-          case "add":
-            output = (a + b);
-            break;
-          case "sub":
-            output = (a - b);
-            break;
-          case "mul":
-            output = (a * b);
-            break;
-          case "div":
-            output = (a / b);
-            break;
-          case "mod":
-            output = (a % b);
-            break;
-          default:
-            break;
-        }
-
-        this.setState({
-          value: output
-        });
-
-    }
-    else {
-
-      this.setState({
-        value: a
-      });
-
-    }
   }
 
   render() {
+
     return (
       <div className="App">
         <NumberInput value={this.state.value} />
 
         <div className={"center-padding"}>
-          <CalcButtons storeOperator={this.storeOperator}/>
-          <NumButtons inputNumber={this.inputNumber} resetValues={this.resetValues}/>
-          <EnterButton handleEnter={this.calculate}/>
+          <CalcButtons storeNumber={this.storeNumber} storeOperator={this.storeOperator}/>
+          <NumButtons inputValue={this.inputValue} resetValues={this.resetValues}/>
+          <EnterButton storeNumber={this.storeNumber} calculate={this.calculate}/>
+          
         </div>
 
       </div>

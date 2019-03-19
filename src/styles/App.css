@@ -14,7 +14,6 @@ div {
 }
 
 button {
-  width: calc(20% - 40px);
   margin: 0 20px;
 
 }
