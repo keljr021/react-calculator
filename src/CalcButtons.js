@@ -17,11 +17,11 @@ class CalcButtons extends Component {
     return (
       <div className={"calc-opbox w-25 position-relative float-left my-1"}>
         <div className={"btn-group-vertical"}>
-          <button className={btnClass} onClick={() => this.handleClick('+')}><FontAwesomeIcon icon="plus" size="xs" /></button>
-          <button className={btnClass} onClick={() => this.handleClick('-')}><FontAwesomeIcon icon="minus" size="xs" /></button>
-          <button className={btnClass} onClick={() => this.handleClick('*')}><FontAwesomeIcon icon="times" size="xs" /></button>
-          <button className={btnClass} onClick={() => this.handleClick('/')}><FontAwesomeIcon icon="divide" size="xs" /></button>
-          <button className={btnClass} onClick={() => this.handleClick('%')}>mod</button>
+          <button className={btnClass} onClick={() => this.handleClick('add')}><FontAwesomeIcon icon="plus" size="xs" /></button>
+          <button className={btnClass} onClick={() => this.handleClick('sub')}><FontAwesomeIcon icon="minus" size="xs" /></button>
+          <button className={btnClass} onClick={() => this.handleClick('mul')}><FontAwesomeIcon icon="times" size="xs" /></button>
+          <button className={btnClass} onClick={() => this.handleClick('div')}><FontAwesomeIcon icon="divide" size="xs" /></button>
+          <button className={btnClass} onClick={() => this.handleClick('mod')}>mod</button>
         </div>
       </div>
     );

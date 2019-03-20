@@ -88,6 +88,10 @@ class Calculator extends Component {
 
       let num = numArray[i];
 
+      if (num === null) {
+        break;
+      }
+
       if (a == null) {
         a = parseFloat(num);
         continue;
