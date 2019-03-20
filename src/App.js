@@ -8,7 +8,8 @@ class App extends Component {
     return (
       <div className="App">
         <Calculator maxWidth={500}
-                    borderRadius={10} />
+                    borderRadius={10}
+                    cssStyles={"default"} />
       </div>
     );
   }

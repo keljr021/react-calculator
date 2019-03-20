@@ -18,28 +18,12 @@ div {
   border-radius: 10px;
 }
 
-.calc-opbox {
-
-}
-
-.calc-numberbox {
-
-}
-
 .calc-numberbox button {
   width: 25%;
   font-size: 18px;
 }
 
-.calc-inputbox {
-
-}
-
 .calc-enterbox {
   width: calc(100% - 20px);
   margin: 0 10px;
-}
-
-.calc-enter button {
-
 }

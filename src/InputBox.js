@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class NumberInput extends Component {
+class InputBox extends Component {
 
   handleKeyDown = (e) => {
     e.preventDefault();
@@ -34,12 +34,14 @@ class NumberInput extends Component {
 
   render() {
 
+    let inputValue = (this.props.value == null) ? "" : this.props.value;
+
     return (
       <div>
-        <input className={"form-control form-control-lg my-2 calc-input"} type={"text"} onKeyDown={this.handleKeyDown} autoFocus={true} defaultValue={(this.props.value == null) ? "" : this.props.value} />
+        <input className={"form-control form-control-lg my-2 calc-input"} type={"text"} onKeyDown={this.handleKeyDown} autoFocus={true} placeholder={"Click numbers or enter here..."} defaultValue={inputValue} />
       </div>
     );
   }
 }
 
-export default NumberInput;
+export default InputBox;

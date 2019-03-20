@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBackspace, faPlus, faMinus, faTimes, faDivide, faEquals } from '@fortawesome/free-solid-svg-icons';
-import NumberInput from './NumberInput';
+import InputBox from './InputBox';
 import CalcButtons from './CalcButtons';
 import NumButtons from './NumButtons';
 import ClearButtons from './ClearButtons';
@@ -16,9 +16,9 @@ class Calculator extends Component {
     super(props);
     this.state = {
       value: null,
-      numIndex: 0,
       numArray: [],
-      opArray: []
+      opArray: [],
+      formulaString: ""
     };
   }
 
@@ -50,6 +50,7 @@ class Calculator extends Component {
     this.setState({
       value: newValue
     });
+
   }
 
   storeOperator = (input) => {
@@ -145,9 +146,20 @@ class Calculator extends Component {
       borderRadius: this.props.borderRadius
     };
 
+    let formulaStyle = {
+      textAlign: 'left'
+    };
+
+    let { numArray, opArray, value } = this.state;
+
+    let formulaString = numArray.map((num, i) =>
+      num + " " + (typeof opArray[i] !== 'undefined' ? opArray[i] : " ")
+    ) + " " + (value === null ? " " : value);
+
     return (
       <div className={"calc"} style={appStyle}>
-        <NumberInput backspaceValue={this.backspaceValue} inputValue={this.inputValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator} calculate={this.calculate} value={this.state.value} />
+        <div style={formulaStyle}>{formulaString}</div>
+        <InputBox backspaceValue={this.backspaceValue} inputValue={this.inputValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator} calculate={this.calculate} opArray={opArray} value={value} />
 
         <div>
           <CalcButtons storeNumber={this.storeNumber} storeOperator={this.storeOperator}/>
