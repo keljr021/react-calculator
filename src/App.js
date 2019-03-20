@@ -25,6 +25,15 @@ class App extends Component {
     });
   }
 
+  backspaceValue = () => {
+
+    let { value } = this.state;
+
+    this.setState({
+      value: value.substring(0, value.length - 1)
+    });
+  }
+
   inputValue = (input) => {
     
     let newValue = input;
@@ -64,11 +73,10 @@ class App extends Component {
   calculate = () => {
 
     let { numArray, opArray, value } = this.state;
+    let a, b;
 
     //Add last value in first
     numArray.push(value);
-
-    let a, b;
 
     for(let i = 0; i < numArray.length; i++) {
 
@@ -90,19 +98,19 @@ class App extends Component {
           let operator = opArray.shift();
 
           switch (operator) {
-            case "add":
+            case "add": case "+":
               a = (a + b);
               break;
-            case "sub":
+            case "sub": case "-":
               a = (a - b);
               break;
-            case "mul":
+            case "mul": case "*":
               a = (a * b);
               break;
-            case "div":
+            case "div": case "/":
               a = (a / b);
               break;
-            case "mod":
+            case "mod": case "%":
               a = (a % b);
               break;
             default:
@@ -129,10 +137,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <NumberInput inputValue={this.inputValue} storeOperator={this.storeOperator} calculate={this.calculate} value={this.state.value} />
+        <NumberInput backspaceValue={this.backspaceValue} inputValue={this.inputValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator} calculate={this.calculate} value={this.state.value} />
 
         <div className={"center-padding"}>
-          <CalcButtons storeNumber={this.storeNumber} storeOperator={this.storeOperator}/>
+          <CalcButtons backspaceValue={this.backspaceValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator}/>
           <NumButtons inputValue={this.inputValue} resetValues={this.resetValues}/>
           <EnterButton storeNumber={this.storeNumber} calculate={this.calculate}/>
           

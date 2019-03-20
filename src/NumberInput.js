@@ -12,6 +12,10 @@ class NumberInput extends Component {
       this.props.calculate();
     }
 
+    else if (input == "Backspace") {
+      this.props.backspaceValue();
+    }
+
     else {
 
       let isOp = (/\+|\-|\*|\//g).test(input);
@@ -19,6 +23,7 @@ class NumberInput extends Component {
       let isDec = (input == '.');
 
       if (isOp) {
+        this.props.storeNumber();
         this.props.storeOperator(input);
       }
       else {
