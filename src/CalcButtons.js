@@ -22,6 +22,7 @@ class CalcButtons extends Component {
           <button className={btnClass} onClick={() => this.handleClick('mul')}><FontAwesomeIcon icon="times" size="xs" /></button>
           <button className={btnClass} onClick={() => this.handleClick('div')}><FontAwesomeIcon icon="divide" size="xs" /></button>
           <button className={btnClass} onClick={() => this.handleClick('mod')}>mod</button>
+          <button className={btnClass} onClick={() => this.props.valueToPercent()}><FontAwesomeIcon icon="percent" size="xs" /></button>
         </div>
       </div>
     );

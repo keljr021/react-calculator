@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBackspace, faPlus, faMinus, faTimes, faDivide, faEquals } from '@fortawesome/free-solid-svg-icons';
+import { faBackspace, faPlus, faMinus, faTimes, faDivide, faEquals, faPercent } from '@fortawesome/free-solid-svg-icons';
 import InputBox from './InputBox';
 import CalcButtons from './CalcButtons';
 import NumButtons from './NumButtons';
@@ -8,7 +8,7 @@ import ClearButtons from './ClearButtons';
 import EnterButton from './EnterButton';
 import './styles/default.css';
 
-library.add(faBackspace, faPlus, faMinus, faTimes, faDivide, faEquals);
+library.add(faBackspace, faPlus, faMinus, faTimes, faDivide, faEquals, faPercent);
 
 class Calculator extends Component {
 
@@ -74,6 +74,21 @@ class Calculator extends Component {
     this.setState({
       numArray: numArray
     });
+  }
+
+  valueToPercent = () => {
+
+    let input = this.state.value;
+
+    if(isNaN(input))
+      return false;
+
+    let inputToPercent = parseFloat(input) / 100;
+
+    this.setState({
+      value: inputToPercent
+    });
+
   }
 
   calculate = () => {
@@ -171,7 +186,7 @@ class Calculator extends Component {
         <InputBox backspaceValue={this.backspaceValue} inputValue={this.inputValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator} calculate={this.calculate} opArray={opArray} value={value} />
 
         <div>
-          <CalcButtons storeNumber={this.storeNumber} storeOperator={this.storeOperator}/>
+          <CalcButtons storeNumber={this.storeNumber} storeOperator={this.storeOperator} valueToPercent={this.valueToPercent}/>
           <NumButtons inputValue={this.inputValue} />
           <ClearButtons backspaceValue={this.backspaceValue} resetValues={this.resetValues}/>
         </div>
