@@ -13,7 +13,7 @@ class EnterButton extends Component {
   render() {
 
     const buttonStyle = {
-      width: '50%',
+      width: 'calc(100% - 40px)',
       cursor: 'pointer'
     }
 
