@@ -140,8 +140,8 @@ class App extends Component {
         <NumberInput backspaceValue={this.backspaceValue} inputValue={this.inputValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator} calculate={this.calculate} value={this.state.value} />
 
         <div className={"center-padding"}>
-          <CalcButtons backspaceValue={this.backspaceValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator}/>
-          <NumButtons inputValue={this.inputValue} resetValues={this.resetValues}/>
+          <CalcButtons backspaceValue={this.backspaceValue} resetValues={this.resetValues} storeNumber={this.storeNumber} storeOperator={this.storeOperator}/>
+          <NumButtons inputValue={this.inputValue} />
           <EnterButton storeNumber={this.storeNumber} calculate={this.calculate}/>
           
         </div>

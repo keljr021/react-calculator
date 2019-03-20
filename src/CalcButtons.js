@@ -14,12 +14,17 @@ class CalcButtons extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.props.backspaceValue()}>&lt;&lt;</button>
-        <button onClick={() => this.handleClick('add')}>+</button>
-        <button onClick={() => this.handleClick('sub')}>-</button>
-        <button onClick={() => this.handleClick('mul')}>*</button>
-        <button onClick={() => this.handleClick('div')}>/</button>
-        <button onClick={() => this.handleClick('mod')}>%</button>
+        <div>
+          <button onClick={() => this.props.backspaceValue()}>&lt;&lt;</button>
+          <button onClick={() => this.props.resetValues()}>Reset</button>
+        </div>
+        <div>
+          <button onClick={() => this.handleClick('add')}>+</button>
+          <button onClick={() => this.handleClick('sub')}>-</button>
+          <button onClick={() => this.handleClick('mul')}>*</button>
+          <button onClick={() => this.handleClick('div')}>/</button>
+          <button onClick={() => this.handleClick('mod')}>%</button>
+        </div>
       </div>
     );
   }

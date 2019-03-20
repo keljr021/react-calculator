@@ -28,7 +28,7 @@ class NumButtons extends Component {
         <div>
           <button onClick={() => this.props.inputValue('.')}>.</button>
           <button onClick={() => this.props.inputValue(0)}>0</button>
-          <button onClick={() => this.props.resetValues()}>Reset</button>
+          
         </div>
       </div>
     );
