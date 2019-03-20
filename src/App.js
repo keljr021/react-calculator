@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Calculator from './Calculator';
-import './styles/App.css';
 
 class App extends Component {
 
@@ -8,7 +7,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Calculator />
+        <Calculator maxWidth={500}
+                    borderRadius={10} />
       </div>
     );
   }

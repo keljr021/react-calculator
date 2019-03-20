@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles/App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class EnterButton extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class EnterButton extends Component {
   render() {
     return (
       <div className={"calc-enterbox"}>
-        <button className={"btn btn-light btn-lg w-100 my-2"} onClick={() => this.handleClick()}>=</button>
+        <button className={"btn btn-light btn-lg w-100 my-2"} onClick={() => this.handleClick()}><FontAwesomeIcon icon="equals" size="xs" /></button>
       </div>
     );
   }

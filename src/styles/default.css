@@ -11,7 +11,7 @@ div {
 }
 
 .calc {
-  width: 50%;
+  max-width: 50%;
   margin: 0 auto;
   padding: 50px;
   background-color: #ccc;
@@ -28,6 +28,7 @@ div {
 
 .calc-numberbox button {
   width: 25%;
+  font-size: 18px;
 }
 
 .calc-inputbox {

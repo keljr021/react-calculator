@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faBackspace, faPlus, faMinus, faTimes, faDivide, faEquals } from '@fortawesome/free-solid-svg-icons';
 import NumberInput from './NumberInput';
 import CalcButtons from './CalcButtons';
 import NumButtons from './NumButtons';
+import ClearButtons from './ClearButtons';
 import EnterButton from './EnterButton';
-import './styles/Calculator.css';
+import './styles/default.css';
+
+library.add(faBackspace, faPlus, faMinus, faTimes, faDivide, faEquals);
 
 class Calculator extends Component {
 
@@ -135,13 +140,19 @@ class Calculator extends Component {
 
   render() {
 
+    let appStyle = {
+      maxWidth: this.props.maxWidth,
+      borderRadius: this.props.borderRadius
+    };
+
     return (
-      <div className={"calc"}>
+      <div className={"calc"} style={appStyle}>
         <NumberInput backspaceValue={this.backspaceValue} inputValue={this.inputValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator} calculate={this.calculate} value={this.state.value} />
 
         <div>
-          <CalcButtons backspaceValue={this.backspaceValue} resetValues={this.resetValues} storeNumber={this.storeNumber} storeOperator={this.storeOperator}/>
+          <CalcButtons storeNumber={this.storeNumber} storeOperator={this.storeOperator}/>
           <NumButtons inputValue={this.inputValue} />
+          <ClearButtons backspaceValue={this.backspaceValue} resetValues={this.resetValues}/>
         </div>
 
 

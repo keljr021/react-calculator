@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './styles/App.css';
 
 class NumButtons extends Component {
 
@@ -12,7 +11,7 @@ class NumButtons extends Component {
     let btnClass = "btn btn-light m-1";
 
     return (
-      <div className={"calc-numberbox w-75 position-relative float-left my-1"}>
+      <div className={"calc-numberbox w-50 position-relative float-left my-1"}>
         <div className={"w-100"}>
           <button className={btnClass} onClick={() => this.props.inputValue(1)}>1</button>
           <button className={btnClass} onClick={() => this.props.inputValue(2)}>2</button>
