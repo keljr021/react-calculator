@@ -11,17 +11,9 @@ class EnterButton extends Component {
   }
 
   render() {
-
-    const buttonStyle = {
-      width: 'calc(100% - 40px)',
-      cursor: 'pointer'
-    }
-
-
-
     return (
-      <div className={"calc-enter"}>
-        <button style={buttonStyle} onClick={() => this.handleClick()}>=</button>
+      <div className={"calc-enterbox"}>
+        <button className={"btn btn-light btn-lg w-100 my-2"} onClick={() => this.handleClick()}>=</button>
       </div>
     );
   }

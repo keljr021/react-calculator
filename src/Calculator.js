@@ -35,7 +35,7 @@ class Calculator extends Component {
   }
 
   inputValue = (input) => {
-    
+
     let newValue = input;
 
     if (this.state.value !== null) {
@@ -48,7 +48,7 @@ class Calculator extends Component {
   }
 
   storeOperator = (input) => {
-    
+
     let { opArray } = this.state;
 
     opArray.push(input);
@@ -57,7 +57,7 @@ class Calculator extends Component {
       opArray: opArray,
       value: null
     });
-    
+
   }
 
   storeNumber = () => {
@@ -94,7 +94,7 @@ class Calculator extends Component {
       if (a !== null && b !== null) {
 
         if (opArray.length > 0) {
-         
+
           let operator = opArray.shift();
 
           switch (operator) {
@@ -139,12 +139,13 @@ class Calculator extends Component {
       <div className={"calc"}>
         <NumberInput backspaceValue={this.backspaceValue} inputValue={this.inputValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator} calculate={this.calculate} value={this.state.value} />
 
-        <div className={"calc-padding"}>
+        <div>
           <CalcButtons backspaceValue={this.backspaceValue} resetValues={this.resetValues} storeNumber={this.storeNumber} storeOperator={this.storeOperator}/>
           <NumButtons inputValue={this.inputValue} />
-          <EnterButton storeNumber={this.storeNumber} calculate={this.calculate}/>
-          
         </div>
+
+
+        <EnterButton storeNumber={this.storeNumber} calculate={this.calculate}/>
 
       </div>
     );

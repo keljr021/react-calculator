@@ -37,7 +37,7 @@ class NumberInput extends Component {
 
     return (
       <div>
-        <input className={"calc-input"} type={"text"} onKeyDown={this.handleKeyDown} autoFocus={true} defaultValue={(this.props.value == null) ? "" : this.props.value} />
+        <input className={"form-control form-control-lg my-2 calc-input"} type={"text"} onKeyDown={this.handleKeyDown} autoFocus={true} defaultValue={(this.props.value == null) ? "" : this.props.value} />
       </div>
     );
   }

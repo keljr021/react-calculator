@@ -3,9 +3,11 @@ div {
   text-align: center;
 }
 
-button {
-  margin: 0 20px;
-  cursor: pointer;
+.btn {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
 }
 
 .calc {
@@ -16,17 +18,27 @@ button {
   border-radius: 10px;
 }
 
-.calc-padding {
-  padding: 10px 80px;
+.calc-opbox {
+
 }
 
-.calc-input {
-  width: 100%;
-  font-size: 14px;
-  margin: 20px 0;
-  padding: 10px 0;
+.calc-numberbox {
+
+}
+
+.calc-numberbox button {
+  width: 25%;
+}
+
+.calc-inputbox {
+
+}
+
+.calc-enterbox {
+  width: calc(100% - 20px);
+  margin: 0 10px;
 }
 
 .calc-enter button {
-  width: calc(100% - 40px);
+
 }

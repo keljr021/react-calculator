@@ -12,18 +12,22 @@ class CalcButtons extends Component {
   }
 
   render() {
+    let btnClass = "btn btn-light my-1";
+
     return (
-      <div className="calc-ops">
-        <div>
-          <button onClick={() => this.props.backspaceValue()}>&lt;&lt;</button>
-          <button onClick={() => this.props.resetValues()}>Reset</button>
-        </div>
-        <div>
-          <button onClick={() => this.handleClick('add')}>+</button>
-          <button onClick={() => this.handleClick('sub')}>-</button>
-          <button onClick={() => this.handleClick('mul')}>*</button>
-          <button onClick={() => this.handleClick('div')}>/</button>
-          <button onClick={() => this.handleClick('mod')}>%</button>
+      <div className={"calc-opbox w-25 position-relative float-left my-1"}>
+        <div className={"btn-group-vertical"}>
+
+          <button className={btnClass} onClick={() => this.props.backspaceValue()}>&lt;&lt;</button>
+
+          <button className={btnClass} onClick={() => this.handleClick('add')}>+</button>
+          <button className={btnClass} onClick={() => this.handleClick('sub')}>-</button>
+          <button className={btnClass} onClick={() => this.handleClick('mul')}>*</button>
+          <button className={btnClass} onClick={() => this.handleClick('div')}>/</button>
+          <button className={btnClass} onClick={() => this.handleClick('mod')}>%</button>
+
+          <button className={btnClass} onClick={() => this.props.resetValues()}>Reset</button>
+
         </div>
       </div>
     );
