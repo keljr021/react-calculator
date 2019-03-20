@@ -155,14 +155,19 @@ class Calculator extends Component {
     };
 
     let { numArray, opArray, value } = this.state;
+    let formulaDiv;
 
-    let formulaString = numArray.map((num, i) =>
-      num + " " + (typeof opArray[i] !== 'undefined' ? opArray[i] : " ")
-    ) + " " + (value === null ? " " : value);
+    if (this.props.displayFormula) {
+      let formulaString = numArray.map((num, i) =>
+        num + " " + (typeof opArray[i] !== 'undefined' ? opArray[i] : " ")
+      ) + " " + (value === null ? " " : value);
+
+      formulaDiv = <div style={formulaStyle}>{formulaString}</div>
+    }
 
     return (
       <div className={"calc"} style={appStyle}>
-        <div style={formulaStyle}>{formulaString}</div>
+        {formulaDiv}
         <InputBox backspaceValue={this.backspaceValue} inputValue={this.inputValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator} calculate={this.calculate} opArray={opArray} value={value} />
 
         <div>
