@@ -20,7 +20,7 @@ class EnterButton extends Component {
 
 
     return (
-      <div>
+      <div className={"calc-enter"}>
         <button style={buttonStyle} onClick={() => this.handleClick()}>=</button>
       </div>
     );

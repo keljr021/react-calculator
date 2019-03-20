@@ -9,7 +9,7 @@ class NumButtons extends Component {
 
   render() {
     return (
-      <div>
+      <div className={"calc-numbers"}>
         <div>
           <button onClick={() => this.props.inputValue(1)}>1</button>
           <button onClick={() => this.props.inputValue(2)}>2</button>

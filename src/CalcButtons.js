@@ -13,7 +13,7 @@ class CalcButtons extends Component {
 
   render() {
     return (
-      <div>
+      <div className="calc-ops">
         <div>
           <button onClick={() => this.props.backspaceValue()}>&lt;&lt;</button>
           <button onClick={() => this.props.resetValues()}>Reset</button>

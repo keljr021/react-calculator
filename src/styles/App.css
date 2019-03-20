@@ -1,19 +1,4 @@
+
 .App {
-  width: 50%;
-  margin: 0 auto;
-  padding: 50px;
-  background-color: #ccc;
-}
-
-div {
-  text-align: center;
-}
-
-.center-padding {
-  padding: 10px 80px;
-}
-
-button {
-  margin: 0 20px;
-
+  background-color: #999;
 }

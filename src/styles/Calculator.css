@@ -1,0 +1,32 @@
+
+div {
+  text-align: center;
+}
+
+button {
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.calc {
+  width: 50%;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.calc-padding {
+  padding: 10px 80px;
+}
+
+.calc-input {
+  width: 100%;
+  font-size: 14px;
+  margin: 20px 0;
+  padding: 10px 0;
+}
+
+.calc-enter button {
+  width: calc(100% - 40px);
+}

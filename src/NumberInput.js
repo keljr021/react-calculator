@@ -35,15 +35,9 @@ class NumberInput extends Component {
 
   render() {
 
-    const inputStyle = {
-      width: '100%',
-      fontSize: 14,
-      margin: '20px 0'
-    }
-
     return (
       <div>
-        <input style={inputStyle} type={"text"} onKeyDown={this.handleKeyDown} autoFocus={true} defaultValue={(this.props.value == null) ? "" : this.props.value} />
+        <input className={"calc-input"} type={"text"} onKeyDown={this.handleKeyDown} autoFocus={true} defaultValue={(this.props.value == null) ? "" : this.props.value} />
       </div>
     );
   }
