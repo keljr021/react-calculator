@@ -59,6 +59,19 @@ class Calculator extends Component {
 
     opArray.push(input);
 
+    if(input === 'add') 
+      input = '+';
+
+    if (input === 'sub')
+      input = '-'; 
+
+    if (input === 'mul')
+      input = 'x'; 
+
+    if (input === 'div')
+      input = '/'; 
+
+
     this.setState({
       opArray: opArray,
       value: null
