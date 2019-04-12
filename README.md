@@ -1,8 +1,11 @@
 # React Calculator
 A work sample calculator component built with React.
 
+### Live Example
+http://poc.kelvin-m.com/react-calculator
+
 ### What's Left
- - Add custom styles
+ - Add custom style ability
 
 ### Known Bugs
  - Input component
