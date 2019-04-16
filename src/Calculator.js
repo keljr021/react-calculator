@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBackspace, faPlus, faMinus, faTimes, faDivide, faEquals, faPercent } from '@fortawesome/free-solid-svg-icons';
 import MemoryButton from './MemoryButton';
+import FormulaBar from './FormulaBar';
 import InputBox from './InputBox';
 import CalcButtons from './CalcButtons';
 import NumButtons from './NumButtons';
@@ -61,19 +62,6 @@ class Calculator extends Component {
     let { opArray } = this.state;
 
     opArray.push(input);
-
-    if(input === 'add') 
-      input = '+';
-
-    if (input === 'sub')
-      input = '-'; 
-
-    if (input === 'mul')
-      input = 'x'; 
-
-    if (input === 'div')
-      input = '/'; 
-
 
     this.setState({
       opArray: opArray,
@@ -219,14 +207,10 @@ class Calculator extends Component {
     };
 
     let { numArray, opArray, memArray, value } = this.state;
-    let formulaDiv;
+    let formulaBar;
 
     if (this.props.displayFormula) {
-      let formulaString = numArray.map((num, i) =>
-        num + " " + (typeof opArray[i] !== 'undefined' ? opArray[i] : " ")
-      ) + " " + (value === null ? " " : value);
-
-      formulaDiv = <div className={"calc-formula"}>{formulaString}</div>;
+      formulaBar = <FormulaBar numArray={numArray} opArray={opArray} value={value} />;
     }
 
     let memDiv;
@@ -243,7 +227,7 @@ class Calculator extends Component {
     return (
       <div className={"calc"} style={appStyle}>
         {memDiv}
-        {formulaDiv}
+        {formulaBar}
 
         <InputBox backspaceValue={this.backspaceValue} inputValue={this.inputValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator} calculate={this.calculate} opArray={opArray} value={value} />
 
