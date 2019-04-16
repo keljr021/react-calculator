@@ -38,9 +38,12 @@ class Calculator extends Component {
 
     let { value } = this.state;
 
-    this.setState({
-      value: value.substring(0, value.length - 1)
-    });
+    if (value !== null && value.length > 0) {
+      this.setState({
+        value: value.substring(0, value.length - 1)
+      });
+    }
+
   }
 
   inputValue = (input) => {
