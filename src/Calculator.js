@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBackspace, faPlus, faMinus, faTimes, faDivide, faEquals, faPercent } from '@fortawesome/free-solid-svg-icons';
+import MemoryButton from './MemoryButton';
 import InputBox from './InputBox';
 import CalcButtons from './CalcButtons';
 import NumButtons from './NumButtons';
@@ -18,6 +19,8 @@ class Calculator extends Component {
       value: null,
       numArray: [],
       opArray: [],
+      memArray: [],
+      disableMemoryBtn: false,
       formulaString: ""
     };
   }
@@ -171,6 +174,43 @@ class Calculator extends Component {
 
   }
 
+  saveMemory = () => {
+
+    if (this.state.value !== null) {
+
+      let array = this.state.memArray;
+      array.push(this.state.value);
+      
+      let disableMemoryBtn = (array.length === 5) ? true : false;
+      
+
+      this.setState({
+        memArray: array,
+        disableMemoryBtn: disableMemoryBtn
+      });
+
+      if (this.props.clearOnMemory) {
+        this.setState({
+          value: null
+        })
+      }
+    }
+  }
+
+  recallMemory = (idx) => {
+    let recallNum = this.state.memArray[idx];
+
+    this.setState({
+      value: recallNum
+    });
+  }
+
+  clearMemory = () => {
+    this.setState({
+      memArray: []
+    });
+  }
+
   render() {
 
     let appStyle = {
@@ -178,11 +218,7 @@ class Calculator extends Component {
       borderRadius: this.props.borderRadius
     };
 
-    let formulaStyle = {
-      textAlign: 'left'
-    };
-
-    let { numArray, opArray, value } = this.state;
+    let { numArray, opArray, memArray, value } = this.state;
     let formulaDiv;
 
     if (this.props.displayFormula) {
@@ -190,18 +226,31 @@ class Calculator extends Component {
         num + " " + (typeof opArray[i] !== 'undefined' ? opArray[i] : " ")
       ) + " " + (value === null ? " " : value);
 
-      formulaDiv = <div style={formulaStyle}>{formulaString}</div>
+      formulaDiv = <div className={"calc-formula"}>{formulaString}</div>;
+    }
+
+    let memDiv;
+    let memButtons;
+
+    if (memArray.length > 0) {
+      memButtons = memArray.map((num, i) =>
+        <MemoryButton key={i} index={i} recallMemory={this.recallMemory} number={num} />
+      );
+
+      memDiv = <div className={"calc-mem"}>{memButtons}</div>;
     }
 
     return (
       <div className={"calc"} style={appStyle}>
+        {memDiv}
         {formulaDiv}
+
         <InputBox backspaceValue={this.backspaceValue} inputValue={this.inputValue} storeNumber={this.storeNumber} storeOperator={this.storeOperator} calculate={this.calculate} opArray={opArray} value={value} />
 
         <div>
           <CalcButtons storeNumber={this.storeNumber} storeOperator={this.storeOperator} valueToPercent={this.valueToPercent}/>
-          <NumButtons inputValue={this.inputValue} />
-          <ClearButtons backspaceValue={this.backspaceValue} resetValues={this.resetValues}/>
+          <NumButtons inputValue={this.inputValue} saveMemory={this.saveMemory} disableMemoryBtn={this.state.disableMemoryBtn} />
+          <ClearButtons backspaceValue={this.backspaceValue} resetValues={this.resetValues} clearMemory={this.clearMemory} />
         </div>
 
 

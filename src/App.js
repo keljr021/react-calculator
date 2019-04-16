@@ -9,7 +9,8 @@ class App extends Component {
       <div className="App">
         <Calculator maxWidth={400}
                     borderRadius={10}
-                    displayFormula={true} />
+                    displayFormula={true}
+                    clearOnMemory={true} />
       </div>
     );
   }

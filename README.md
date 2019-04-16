@@ -9,10 +9,10 @@ http://poc.kelvin-m.com/react-calculator
  - maxWidth - The maximum width for the component
  - borderRadius - Rounds/Sharpens based on value (0 for sharp corners)
  - displayFormlua - Displays the calculated formula above the number box
+ - clearOnMemory - When true, will clear the input if user stores the number to memory
 
 ### What's Left
  - Add custom styling for component
- - Add ability to save memory values (up to 5 possibly)
 
 ### Known Bugs
  - Input component

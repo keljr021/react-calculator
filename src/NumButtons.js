@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 
-class NumButtons extends Component {
 
-  constructor(props) {
-    super(props);
-  }
+class NumButtons extends Component {
 
   render() {
 
@@ -30,6 +27,7 @@ class NumButtons extends Component {
         <div className={"w-100"}>
           <button className={btnClass} onClick={() => this.props.inputValue('.')}>.</button>
           <button className={btnClass} onClick={() => this.props.inputValue(0)}>0</button>
+          <button className={btnClass} onClick={() => this.props.saveMemory()} disabled={this.props.disableMemoryBtn}><i>M</i></button>
         </div>
       </div>
     );

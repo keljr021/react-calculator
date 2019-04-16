@@ -1,3 +1,11 @@
+/* Default CSS File
+ * This file holds the main CSS configuration for the calculator component. 
+ * It is strongly recommended to copy this file first before making changes. 
+ * To customize, add your stylesheet to the styles/ directory, then change the import from "default" 
+ * to your stylesheet name in the Calculator component.
+ * NOTE: Most of the classes below should be customizeable, there are some additional classes 
+ * (ie. .calc-numberbox) that were omitted
+ */
 
 div {
   text-align: center;
@@ -14,9 +22,25 @@ div {
 .calc {
   max-width: 50%;
   margin: 0 auto;
-  padding: 50px;
+  padding: 30px;
   border-radius: 10px;
   background-color: #e9e9e9;
+}
+
+.calc-formula {
+  text-align: left;
+  padding: 5px 0;
+}
+
+.calc-mem {
+  text-align: left;
+  padding: 5px 0;
+}
+
+.calc-mem-num {
+  margin: 0 3px;
+  background: #999;
+  color: #fff !important;
 }
 
 .calc-numberbox button {

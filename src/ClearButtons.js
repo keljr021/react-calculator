@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class ClearButtons extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     let btnClass = "btn btn-light my-1";
@@ -14,6 +11,7 @@ class ClearButtons extends Component {
         <div className={"btn-group-vertical"}>
           <button className={btnClass} onClick={() => this.props.backspaceValue()}><FontAwesomeIcon icon="backspace" size="xs"/></button>
           <button className={btnClass} onClick={() => this.props.resetValues()}>C</button>
+          <button className={btnClass} onClick={() => this.props.clearMemory()}><i>MC</i></button>
         </div>
       </div>
     );

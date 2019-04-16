@@ -7,19 +7,19 @@ class InputBox extends Component {
 
     let input = e.key;
 
-    if (input == "Enter") {
+    if (input === "Enter") {
       this.props.calculate();
     }
 
-    else if (input == "Backspace") {
+    else if (input === "Backspace") {
       this.props.backspaceValue();
     }
 
     else {
 
-      let isOp = (/\+|\-|\*|\//g).test(input);
+      let isOp = (/\+|-|\*|\//g).test(input);
       let isNum = (/[0-9]/g).test(input);
-      let isDec = (input == '.');
+      let isDec = (input === '.');
 
       if (isOp) {
         this.props.storeNumber();
